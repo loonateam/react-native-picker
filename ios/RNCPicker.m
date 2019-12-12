@@ -19,6 +19,7 @@
 {
   if ((self = [super initWithFrame:frame])) {
     _color = [UIColor blackColor];
+    _lineColor = [UIColor blackColor];
     _font = [UIFont systemFontOfSize:21]; // TODO: selected title default should be 23.5
     _selectedIndex = NSNotFound;
     _animated = YES;
