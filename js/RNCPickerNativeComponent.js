@@ -7,12 +7,14 @@
  * @flow
  * @format
  */
+
 'use strict';
 
 import {requireNativeComponent} from 'react-native';
 
 import type {SyntheticEvent} from 'CoreEventTypes';
 import type {TextStyleProp} from 'StyleSheet';
+import type {ColorValue} from 'StyleSheetTypes';
 import type {NativeComponent} from 'ReactNative';
 
 type PickerIOSChangeEvent = SyntheticEvent<
@@ -38,6 +40,7 @@ type RNCPickerIOSType = Class<
       selectedIndex: number,
       animated: boolean,
       style?: ?TextStyleProp,
+      lineColor?: ?ColorValue,
       testID?: ?string,
     |}>,
   >,

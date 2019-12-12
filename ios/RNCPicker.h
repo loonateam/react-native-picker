@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, assign) BOOL animated;
 
+@property (nonatomic, strong) UIColor *lineColor;
 @property (nonatomic, strong) UIColor *color;
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, assign) NSTextAlignment textAlign;

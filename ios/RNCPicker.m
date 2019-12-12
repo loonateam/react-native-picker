@@ -31,6 +31,12 @@
 
 RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
+- (void)didMoveToWindow
+{
+    [super didMoveToWindow];
+    [self setLineColor: _lineColor];
+}
+
 - (void)setItems:(NSArray<NSDictionary *> *)items
 {
   _items = [items copy];
@@ -51,6 +57,19 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 - (void)setAnimated:(BOOL)animated
 {
     _animated = animated;
+}
+
+- (void)setLineColor:(UIColor *)color
+{
+    _lineColor = color;
+    
+    for (UIView* view in self.subviews) {
+        CGFloat height = view.frame.size.height;
+        
+        if (height < 1) {
+            view.backgroundColor = color;
+        }
+    }
 }
 
 #pragma mark - UIPickerViewDataSource protocol

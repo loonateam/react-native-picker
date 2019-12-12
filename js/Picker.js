@@ -87,6 +87,12 @@ type PickerProps = $ReadOnly<{|
   animated?: ?boolean,
 
   /**
+   * Sets color of horizontal lines
+   * @platform ios
+   */
+  lineColor?: ColorValue,
+
+  /**
    * On Android, specifies how to display the selection items when the user taps on the picker:
    *
    *   - 'dialog': Show a modal dialog. This is the default.
