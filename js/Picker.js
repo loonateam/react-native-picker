@@ -81,6 +81,12 @@ type PickerProps = $ReadOnly<{|
   enabled?: ?boolean,
 
   /**
+   * If set to false, the picker will not be animated
+   * @platform ios
+   */
+  animated?: ?boolean,
+
+  /**
    * On Android, specifies how to display the selection items when the user taps on the picker:
    *
    *   - 'dialog': Show a modal dialog. This is the default.
@@ -133,6 +139,7 @@ class Picker extends React.Component<PickerProps> {
 
   static defaultProps = {
     mode: MODE_DIALOG,
+    animated: true,
   };
 
   render() {

@@ -21,6 +21,7 @@
     _color = [UIColor blackColor];
     _font = [UIFont systemFontOfSize:21]; // TODO: selected title default should be 23.5
     _selectedIndex = NSNotFound;
+    _animated = YES;
     _textAlign = NSTextAlignmentCenter;
     self.delegate = self;
     [self selectRow:0 inComponent:0 animated:YES]; // Workaround for missing selection indicator lines (see https://stackoverflow.com/questions/39564660/uipickerview-selection-indicator-not-visible-in-ios10)
@@ -39,12 +40,17 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 - (void)setSelectedIndex:(NSInteger)selectedIndex
 {
   if (_selectedIndex != selectedIndex) {
-    BOOL animated = _selectedIndex != NSNotFound; // Don't animate the initial value
+    BOOL animated = _animated && _selectedIndex != NSNotFound; // Don't animate the initial value
     _selectedIndex = selectedIndex;
     dispatch_async(dispatch_get_main_queue(), ^{
       [self selectRow:selectedIndex inComponent:0 animated:animated];
     });
   }
+}
+
+- (void)setAnimated:(BOOL)animated
+{
+    _animated = animated;
 }
 
 #pragma mark - UIPickerViewDataSource protocol

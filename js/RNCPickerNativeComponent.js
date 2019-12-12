@@ -36,6 +36,7 @@ type RNCPickerIOSType = Class<
       items: $ReadOnlyArray<RNCPickerIOSTypeItemType>,
       onChange: (event: PickerIOSChangeEvent) => void,
       selectedIndex: number,
+      animated: boolean,
       style?: ?TextStyleProp,
       testID?: ?string,
     |}>,

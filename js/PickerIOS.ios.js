@@ -43,6 +43,7 @@ type RNCPickerIOSType = Class<
       items: $ReadOnlyArray<RNCPickerIOSItemType>,
       onChange: (event: PickerIOSChangeEvent) => void,
       selectedIndex: number,
+      animated: boolean,
       style?: ?TextStyleProp,
       testID?: ?string,
     |}>,
@@ -55,6 +56,7 @@ type Props = $ReadOnly<{|
   ...ViewProps,
   children: ChildrenArray<Element<typeof PickerIOSItem>>,
   itemStyle?: ?TextStyleProp,
+  animated?: ?boolean,
   onChange?: ?(event: PickerIOSChangeEvent) => mixed,
   onValueChange?: ?(itemValue: string | number, itemIndex: number) => mixed,
   selectedValue: ?(number | string),
@@ -112,6 +114,7 @@ class PickerIOS extends React.Component<Props, State> {
           style={[styles.pickerIOS, this.props.itemStyle]}
           items={this.state.items}
           selectedIndex={this.state.selectedIndex}
+          animated={this.props.animated}
           onChange={this._onChange}
         />
       </View>
